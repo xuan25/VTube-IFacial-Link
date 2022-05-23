@@ -20,7 +20,7 @@ EYE_OPEN_RATIO = 1.5
 EYE_ROTATION_RATIO = 1.5
 
 CHEEK_PUFF_RATIO = 2
-FACE_ANGRY_RATIO = 0.4
+FACE_ANGRY_RATIO = 0.9
 
 BROW_LEFT_Y_RATIO = 2
 BROW_RIGHT_Y_RATIO = 2
@@ -108,7 +108,7 @@ def build_params_dict(ifacial_data):
         },
         {
             "id": "FaceAngry",
-            "value": 0 if ifacial_data[ifacial.MOUTH_ROLL_LOWER] < FACE_ANGRY_RATIO else 1
+            "value": 0 if ifacial_data[ifacial.MOUTH_ROLL_LOWER] + ifacial_data[ifacial.MOUTH_SHRUG_LOWER] < FACE_ANGRY_RATIO else 1
         },
         {
             "id": "BrowLeftY",
