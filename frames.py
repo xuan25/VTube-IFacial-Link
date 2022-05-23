@@ -9,7 +9,7 @@ from models import CapturedData
 
 class ParamsFrame(wx.Frame):
     def __init__(self, capture_data: CapturedData):
-        super().__init__(None, wx.ID_ANY, "iFacialMocap Puppeteer")
+        super().__init__(None, wx.ID_ANY, "VTube-IFacial-Link")
         self.capture_data = capture_data
         self.create_ui()
         self.Bind(wx.EVT_CLOSE, self.on_close)
