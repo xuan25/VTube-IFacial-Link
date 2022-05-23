@@ -14,13 +14,13 @@ MOUSE_OPEN_RATIO = 1.2
 
 BROWS_RATIO = 2
 
-TONGUE_OUT_RATIO = 10
+TONGUE_OUT_RATIO = 0.4
 
 EYE_OPEN_RATIO = 1.5
 EYE_ROTATION_RATIO = 1.5
 
 CHEEK_PUFF_RATIO = 2
-FACE_ANGRY_RATIO = 2
+FACE_ANGRY_RATIO = 0.4
 
 BROW_LEFT_Y_RATIO = 2
 BROW_RIGHT_Y_RATIO = 2
@@ -76,7 +76,7 @@ def build_params_dict(ifacial_data):
         },
         {
             "id": "TongueOut",
-            "value": ifacial_data[ifacial.TONGUE_OUT] * TONGUE_OUT_RATIO
+            "value": 0 if ifacial_data[ifacial.TONGUE_OUT] < TONGUE_OUT_RATIO else 1
         },
         {
             "id": "EyeOpenLeft",
@@ -108,7 +108,7 @@ def build_params_dict(ifacial_data):
         },
         {
             "id": "FaceAngry",
-            "value": ifacial_data[ifacial.MOUTH_ROLL_LOWER] * FACE_ANGRY_RATIO
+            "value": 0 if ifacial_data[ifacial.MOUTH_ROLL_LOWER] < FACE_ANGRY_RATIO else 1
         },
         {
             "id": "BrowLeftY",
