@@ -15,4 +15,8 @@ A *VtubeStudio* plugin that bridging facial capture from *iFacialMocap* (IOS), e
 4. Launch both VtubeStudio on your PC and iFacialMocap on your iPhone.
 5. Make sure the `VTube Studio API` is enabled, where the port should be 8001.
 6. Launch the Bridging Plugin by command `python main.py -c <iPhone's IP Address>`, where `<iPhone's IP Address>` is the address shown in the iFacialMocap.
-7. You should see a window showing all of the captured parameters and VtubeStudio should detect the plugin. 
+7. You should see a window showing all of the captured parameters and VtubeStudio should detect the plugin.  
+
+# Acknowledgment
+
+The model in screenshots is created by [猫旦那](https://www.bilibili.com/video/BV1yo4y1f7Xe)
