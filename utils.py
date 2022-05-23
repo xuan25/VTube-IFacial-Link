@@ -9,8 +9,8 @@ FACE_ANGLE_X_RATIO = 1
 FACE_ANGLE_Y_RATIO = 1
 FACE_ANGLE_Z_RATIO = 1
 
-MOUTH_SMILE_RATIO = 3
-MOUSE_OPEN_RATIO = 1.5
+MOUTH_SMILE_RATIO = 2
+MOUSE_OPEN_RATIO = 1.2
 
 BROWS_RATIO = 2
 
@@ -59,11 +59,11 @@ def build_params_dict(ifacial_data):
             "value": (
                         (
                             (
-                                (ifacial_data[ifacial.MOUTH_SMILE_LEFT] + ifacial_data[ifacial.MOUTH_SMILE_RIGHT])      # mouth smile (pos)
-                                - ifacial_data[ifacial.MOUTH_SHRUG_LOWER]                                               # mouth shrug (neg)
+                                (ifacial_data[ifacial.MOUTH_SMILE_LEFT] + ifacial_data[ifacial.MOUTH_SMILE_RIGHT])                                      # mouth smile (pos*2)
+                                - math.pow(max(ifacial_data[ifacial.MOUTH_SHRUG_LOWER] - 0.2, 0), 1)                                                    # mouth shrug (neg*1) (threshold: 0.2)
+                                - math.pow(max(-ifacial_data[ifacial.BROW_INNER_UP] + (0.15 - ((ifacial_data[ifacial.EYE_BLINK_LEFT] + ifacial_data[ifacial.EYE_BLINK_RIGHT]) * 0.05) + (ifacial_data[ifacial.JAW_OPEN] * 0.1)), 0), 0.4) * 1.5    # brow low (neg*1.5) (threshold: 0.2 - eye_blink_factor + mouth_open_factor)
                             ) * MOUTH_SMILE_RATIO                                                                       # ratio
                         ) / 2 + 0.5                                                                                     # range re-mapping
-                        - (math.pow(ifacial_data[ifacial.JAW_OPEN], 0.4) * 1)                                           # mouth open correction (neg; sad component)
                     )
         },
         {
