@@ -1,6 +1,6 @@
 # VTube-IFacial-Link
 
-A *VtubeStudio* plugin that bridging facial capture from *iFacialMocap* (IOS), enabling full apple ARkit facial tracking features.
+A *VTube Studio* plugin that bridging facial tracking from *iFacialMocap* (IOS), enabling full apple ARKit facial tracking features.
 
 | ![](imgs/screenshot1.png) | ![](imgs/screenshot2.png) |
 |---|---|
