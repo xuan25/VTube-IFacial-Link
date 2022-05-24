@@ -20,7 +20,7 @@ EYE_OPEN_RATIO = 1.5
 EYE_ROTATION_RATIO = 1.5
 
 CHEEK_PUFF_RATIO = 2
-FACE_ANGRY_RATIO = 0.9
+FACE_ANGRY_RATIO = 0.3
 
 BROW_LEFT_Y_RATIO = 2
 BROW_RIGHT_Y_RATIO = 2
@@ -59,9 +59,9 @@ def build_params_dict(ifacial_data):
             "value": (
                         (
                             (
-                                (ifacial_data[ifacial.MOUTH_SMILE_LEFT] + ifacial_data[ifacial.MOUTH_SMILE_RIGHT])                                      # mouth smile (pos*2)
-                                - math.pow(max(ifacial_data[ifacial.MOUTH_SHRUG_LOWER] - 0.2, 0), 1)                                                    # mouth shrug (neg*1) (threshold: 0.2)
-                                - math.pow(max(-ifacial_data[ifacial.BROW_INNER_UP] + (0.15 - ((ifacial_data[ifacial.EYE_BLINK_LEFT] + ifacial_data[ifacial.EYE_BLINK_RIGHT]) * 0.05) + (ifacial_data[ifacial.JAW_OPEN] * 0.1)), 0), 0.4) * 1.5    # brow low (neg*1.5) (threshold: 0.2 - eye_blink_factor + mouth_open_factor)
+                                max(ifacial_data[ifacial.MOUTH_SMILE_LEFT] + ifacial_data[ifacial.MOUTH_SMILE_RIGHT] - 0.2, 0)                            # mouth smile (pos*2)
+                                - math.pow(max(ifacial_data[ifacial.MOUTH_SHRUG_LOWER] - 0.4, 0), 1) * 1                                                  # mouth shrug (neg*1) (threshold: 0.4)
+                                - math.pow(max(-ifacial_data[ifacial.BROW_INNER_UP] + (0.08 + (ifacial_data[ifacial.JAW_OPEN] * 0.15)), 0), 0.4) * 1.5    # brow low (neg*1.5) (threshold: 0.08 + mouth_open_factor)
                             ) * MOUTH_SMILE_RATIO                                                                       # ratio
                         ) / 2 + 0.5                                                                                     # range re-mapping
                     )
@@ -108,7 +108,7 @@ def build_params_dict(ifacial_data):
         },
         {
             "id": "FaceAngry",
-            "value": 0 if ifacial_data[ifacial.MOUTH_ROLL_LOWER] + ifacial_data[ifacial.MOUTH_SHRUG_LOWER] < FACE_ANGRY_RATIO else 1
+            "value": 0 if ifacial_data[ifacial.MOUTH_ROLL_LOWER] * ifacial_data[ifacial.MOUTH_SHRUG_LOWER] < FACE_ANGRY_RATIO else 1
         },
         {
             "id": "BrowLeftY",
