@@ -20,6 +20,8 @@ A *VTube Studio* plugin that bridging facial tracking from *iFacialMocap* (IOS),
 ## Roadmap
 
 - [ ] Use ML model to detect smiling and anger from multiple parameters.
+- [ ] Build a standalone face tracking link app on IOS. [ref](https://developer.apple.com/documentation/arkit/content_anchors/tracking_and_visualizing_faces)
+- [ ] Hand tracking feature [ref-1](https://developer.apple.com/videos/play/wwdc2020/10653/) [ref-2](https://developer.apple.com/documentation/vision/detecting_hand_poses_with_vision)
 
 ## Acknowledgment
 
