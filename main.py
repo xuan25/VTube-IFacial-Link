@@ -2,10 +2,10 @@ import sys
 
 import wx
 
-from commandline import CommandLine
-from frames import ParamsFrame
-from models import CapturedData
-from threads import CaptureThread, PluginThread
+from ifacial.commandline import CommandLine
+from ifacial.frames import ParamsFrame
+from ifacial.models import CapturedData
+from ifacial.threads import CaptureThread, PluginThread
 
 
 def main(udp_address):

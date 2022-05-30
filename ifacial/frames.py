@@ -4,7 +4,7 @@ import threading
 import wx
 
 import ifacial
-from models import CapturedData
+from ifacial.models import CapturedData
 
 
 class ParamsFrame(wx.Frame):

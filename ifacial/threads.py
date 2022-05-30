@@ -8,8 +8,8 @@ import websockets
 
 import ifacial
 import vtube
-from models import CapturedData
-from utils import build_params_dict
+from ifacial.models import CapturedData
+from ifacial.utils import build_params_dict
 
 
 class CaptureThread(threading.Thread):
@@ -82,7 +82,6 @@ class CaptureThread(threading.Thread):
         data[ifacial.LEFT_EYE_ROTATION_Z] = params_dict["leftEye"][2]
 
         return data
-
 
 class PluginThread(threading.Thread):
 
