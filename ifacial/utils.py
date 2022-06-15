@@ -62,7 +62,7 @@ def build_params_dict(ifacial_data):
                             (
                                 max(ifacial_data[ifacial.MOUTH_SMILE_LEFT] + ifacial_data[ifacial.MOUTH_SMILE_RIGHT] - 0.2, 0)                            # mouth smile (pos*2)
                                 - math.pow(max(ifacial_data[ifacial.MOUTH_SHRUG_LOWER] - 0.4, 0), 1) * 1                                                  # mouth shrug (neg*1) (threshold: 0.4)
-                                - math.pow(max((ifacial_data[ifacial.BROW_DOWN_LEFT] + ifacial_data[ifacial.BROW_DOWN_RIGHT]) / 2 - 0.3 + (0.08 + (ifacial_data[ifacial.JAW_OPEN] * 0.15)), 0), 0.4) * 1.5    # brow low (neg*1.5) (threshold: 0.08 + mouth_open_factor)
+                                - math.pow(max((ifacial_data[ifacial.BROW_DOWN_LEFT] + ifacial_data[ifacial.BROW_DOWN_RIGHT]) / 2 - 0.3 + (0.08 + ((ifacial_data[ifacial.JAW_OPEN] - ifacial_data[ifacial.MOUTH_CLOSE]) * 0.15)), 0), 0.4) * 1.5    # brow low (neg*1.5) (threshold: 0.08 + mouth_open_factor)
                             ) * MOUTH_SMILE_RATIO                                                                       # ratio
                         ) / 2 + 0.5                                                                                     # range re-mapping
                     )
