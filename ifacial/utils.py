@@ -68,7 +68,7 @@ def build_params_dict(ifacial_data):
         },
         {
             "id": "MouthOpen",
-            "value": ifacial_data[ifacial.JAW_OPEN] * MOUSE_OPEN_RATIO
+            "value": (ifacial_data[ifacial.JAW_OPEN] - ifacial_data[ifacial.MOUTH_CLOSE]) * MOUSE_OPEN_RATIO
         },
         {
             "id": "Brows",
