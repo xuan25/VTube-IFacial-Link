@@ -30,6 +30,7 @@ MOUTH_X_RATIO = 2
 
 def build_params_dict(ifacial_data):
     ifacial_data = [
+        # VTubeStudio Default
         {
             "id": "FacePositionX",
             "value": ifacial_data[ifacial.HEAD_POSITION_X] * FACE_POSITION_X_RATIO
@@ -121,6 +122,216 @@ def build_params_dict(ifacial_data):
         {
             "id": "MouthX",
             "value": (ifacial_data[ifacial.MOUTH_LEFT] - ifacial_data[ifacial.MOUTH_RIGHT]) * MOUTH_X_RATIO
+        },
+
+        # ARKit
+        {
+            "id": "EyeBlinkLeft",
+            "value": ifacial_data[ifacial.EYE_BLINK_LEFT]
+        },
+        {
+            "id": "EyeLookDownLeft",
+            "value": ifacial_data[ifacial.EYE_LOOK_DOWN_LEFT]
+        },
+        {
+            "id": "EyeLookInLeft",
+            "value": ifacial_data[ifacial.EYE_LOOK_IN_LEFT]
+        },
+        {
+            "id": "EyeLookOutLeft",
+            "value": ifacial_data[ifacial.EYE_LOOK_OUT_LEFT]
+        },
+        {
+            "id": "EyeLookUpLeft",
+            "value": ifacial_data[ifacial.EYE_LOOK_UP_LEFT]
+        },
+        {
+            "id": "EyeSquintLeft",
+            "value": ifacial_data[ifacial.EYE_SQUINT_LEFT]
+        },
+        {
+            "id": "EyeWideLeft",
+            "value": ifacial_data[ifacial.EYE_WIDE_LEFT]
+        },
+        {
+            "id": "EyeBlinkRight",
+            "value": ifacial_data[ifacial.EYE_BLINK_RIGHT]
+        },
+        {
+            "id": "EyeLookDownRight",
+            "value": ifacial_data[ifacial.EYE_LOOK_DOWN_RIGHT]
+        },
+        {
+            "id": "EyeLookInRight",
+            "value": ifacial_data[ifacial.EYE_LOOK_IN_RIGHT]
+        },
+        {
+            "id": "EyeLookOutRight",
+            "value": ifacial_data[ifacial.EYE_LOOK_OUT_RIGHT]
+        },
+        {
+            "id": "EyeLookUpRight",
+            "value": ifacial_data[ifacial.EYE_LOOK_UP_RIGHT]
+        },
+        {
+            "id": "EyeSquintRight",
+            "value": ifacial_data[ifacial.EYE_SQUINT_RIGHT]
+        },
+        {
+            "id": "EyeWideRight",
+            "value": ifacial_data[ifacial.EYE_WIDE_RIGHT]
+        },
+        {
+            "id": "JawForward",
+            "value": ifacial_data[ifacial.JAW_FORWARD]
+        },
+        {
+            "id": "JawLeft",
+            "value": ifacial_data[ifacial.JAW_LEFT]
+        },
+        {
+            "id": "JawRight",
+            "value": ifacial_data[ifacial.JAW_RIGHT]
+        },
+        {
+            "id": "JawOpen",
+            "value": ifacial_data[ifacial.JAW_OPEN]
+        },
+        {
+            "id": "MouthClose",
+            "value": ifacial_data[ifacial.MOUTH_CLOSE]
+        },
+        {
+            "id": "MouthFunnel",
+            "value": ifacial_data[ifacial.MOUTH_FUNNEL]
+        },
+        {
+            "id": "MouthPucker",
+            "value": ifacial_data[ifacial.MOUTH_PUCKER]
+        },
+        {
+            "id": "MouthLeft",
+            "value": ifacial_data[ifacial.MOUTH_LEFT]
+        },
+        {
+            "id": "MouthRight",
+            "value": ifacial_data[ifacial.MOUTH_RIGHT]
+        },
+        {
+            "id": "MouthSmileLeft",
+            "value": ifacial_data[ifacial.MOUTH_SMILE_LEFT]
+        },
+        {
+            "id": "MouthSmileRight",
+            "value": ifacial_data[ifacial.MOUTH_SMILE_RIGHT]
+        },
+        {
+            "id": "MouthFrownLeft",
+            "value": ifacial_data[ifacial.MOUTH_FROWN_LEFT]
+        },
+        {
+            "id": "MouthFrownRight",
+            "value": ifacial_data[ifacial.MOUTH_FROWN_RIGHT]
+        },
+        {
+            "id": "MouthDimpleLeft",
+            "value": ifacial_data[ifacial.MOUTH_DIMPLE_LEFT]
+        },
+        {
+            "id": "MouthDimpleRight",
+            "value": ifacial_data[ifacial.MOUTH_DIMPLE_RIGHT]
+        },
+        {
+            "id": "MouthStretchLeft",
+            "value": ifacial_data[ifacial.MOUTH_STRETCH_LEFT]
+        },
+        {
+            "id": "MouthStretchRight",
+            "value": ifacial_data[ifacial.MOUTH_STRETCH_RIGHT]
+        },
+        {
+            "id": "MouthRollLower",
+            "value": ifacial_data[ifacial.MOUTH_ROLL_LOWER]
+        },
+        {
+            "id": "MouthRollUpper",
+            "value": ifacial_data[ifacial.MOUTH_ROLL_UPPER]
+        },
+        {
+            "id": "MouthShrugLower",
+            "value": ifacial_data[ifacial.MOUTH_SHRUG_LOWER]
+        },
+        {
+            "id": "MouthShrugUpper",
+            "value": ifacial_data[ifacial.MOUTH_SHRUG_UPPER]
+        },
+        {
+            "id": "MouthPressLeft",
+            "value": ifacial_data[ifacial.MOUTH_PRESS_LEFT]
+        },
+        {
+            "id": "MouthPressRight",
+            "value": ifacial_data[ifacial.MOUTH_PRESS_RIGHT]
+        },
+        {
+            "id": "MouthLowerDownLeft",
+            "value": ifacial_data[ifacial.MOUTH_LOWER_DOWN_LEFT]
+        },
+        {
+            "id": "MouthLowerDownRight",
+            "value": ifacial_data[ifacial.MOUTH_LOWER_DOWN_RIGHT]
+        },
+        {
+            "id": "MouthUpperUpLeft",
+            "value": ifacial_data[ifacial.MOUTH_UPPER_UP_LEFT]
+        },
+        {
+            "id": "MouthUpperUpRight",
+            "value": ifacial_data[ifacial.MOUTH_UPPER_UP_RIGHT]
+        },
+        {
+            "id": "BrowDownLeft",
+            "value": ifacial_data[ifacial.BROW_DOWN_LEFT]
+        },
+        {
+            "id": "BrowDownRight",
+            "value": ifacial_data[ifacial.BROW_DOWN_RIGHT]
+        },
+        {
+            "id": "BrowInnerUp",
+            "value": ifacial_data[ifacial.BROW_INNER_UP]
+        },
+        {
+            "id": "BrowOuterUpLeft",
+            "value": ifacial_data[ifacial.BROW_OUTER_UP_LEFT]
+        },
+        {
+            "id": "BrowOuterUpRight",
+            "value": ifacial_data[ifacial.BROW_OUTER_UP_RIGHT]
+        },
+        {
+            "id": "CheekPuff",
+            "value": ifacial_data[ifacial.CHEEK_PUFF]
+        },
+        {
+            "id": "CheekSquintLeft",
+            "value": ifacial_data[ifacial.CHEEK_SQUINT_LEFT]
+        },
+        {
+            "id": "CheekSquintRight",
+            "value": ifacial_data[ifacial.CHEEK_SQUINT_RIGHT]
+        },
+        {
+            "id": "NoseSneerLeft",
+            "value": ifacial_data[ifacial.NOSE_SNEER_LEFT]
+        },
+        {
+            "id": "NoseSneerRight",
+            "value": ifacial_data[ifacial.NOSE_SNEER_RIGHT]
+        },
+        {
+            "id": "TongueOut",
+            "value": ifacial_data[ifacial.TONGUE_OUT]
         },
     ]
     return ifacial_data

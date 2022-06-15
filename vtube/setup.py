@@ -1,5 +1,6 @@
 import json
 import os
+from vtube.params import CUSTOM_PARAMS
 
 import vtube.utils
 
@@ -46,4 +47,18 @@ async def init(websocket):
         # Authorization with token
         await vtube.utils.register_plugin(websocket, authtoken)
 
+    # fetch parameter list
+    print("Fetching Parameters...")
+    params_res = await vtube.utils.list_parameters(websocket)
+    custom_params = set()
+    for param_item in params_res['data']['customParameters']:
+        custom_params.add(param_item['name'])
+
+    # add missing params
+    print("Registering Parameters...")
+    for custom_param_name in CUSTOM_PARAMS:
+        if custom_param_name not in custom_params:
+            await vtube.utils.create_parameter(websocket, custom_param_name, '')
+            custom_params.add(custom_param_name)
+        
     print("Successfully Initialized")

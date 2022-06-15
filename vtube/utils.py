@@ -39,6 +39,39 @@ async def register_plugin(websocket, authtoken):
     return pack
 
 
+async def list_parameters(websocket):
+    payload = {
+        "apiName": "VTubeStudioPublicAPI",
+        "apiVersion": vtube.API_VERSION,
+        "requestID": vtube.REQUEST_ID,
+        "messageType": "InputParameterListRequest"
+    }
+    await websocket.send(json.dumps(payload))
+    json_data = await websocket.recv()
+    pack = json.loads(json_data)
+    return pack
+
+
+async def create_parameter(websocket, parameterName, explanation, min=0, max=1, defaultValue=0):
+    payload = {
+        "apiName": "VTubeStudioPublicAPI",
+        "apiVersion": vtube.API_VERSION,
+        "requestID": vtube.REQUEST_ID,
+        "messageType": "ParameterCreationRequest",
+        "data": {
+            "parameterName": parameterName,
+            "explanation": explanation,
+            "min": min,
+            "max": max,
+            "defaultValue": defaultValue
+        }
+    }
+    await websocket.send(json.dumps(payload))
+    json_data = await websocket.recv()
+    pack = json.loads(json_data)
+    return pack
+
+
 async def inject_params(websocket, parameter_values):
     payload = {
         "apiName": "VTubeStudioPublicAPI",
