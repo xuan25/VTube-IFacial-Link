@@ -1,14 +1,10 @@
-import sys
+import argparse
 
-import wx
-
-from ifacial.commandline import CommandLine
-from ifacial.frames import ParamsFrame
 from ifacial.models import CapturedData
 from ifacial.threads import CaptureThread, PluginThread
 
 
-def main(udp_address):
+def main(udp_address, gui):
 
     capture_data = CapturedData()
 
@@ -18,10 +14,21 @@ def main(udp_address):
     plugin_thread = PluginThread(capture_data)
     plugin_thread.start()
 
-    app = wx.App()
-    main_frame = ParamsFrame(capture_data)
-    main_frame.Show(True)
-    app.MainLoop()
+    if gui:
+        import wx
+        from ifacial.frames import ParamsFrame
+        app = wx.App()
+        main_frame = ParamsFrame(capture_data)
+        main_frame.Show(True)
+        app.MainLoop()
+    else:
+        try:
+            while(True):
+                import time
+                time.sleep(1)
+        except KeyboardInterrupt:
+            print('shutting down')
+
 
     plugin_thread.should_terminate = True
     plugin_thread.join()
@@ -32,8 +39,12 @@ def main(udp_address):
 
 if __name__ == "__main__":
 
-    config = CommandLine()
-    if config.exit:
-        sys.exit(0)
+    parser = argparse.ArgumentParser(
+                    prog = 'VTUBE-OFACIAL-LINK',
+                    description = 'VTUBE-OFACIAL-LINK')
 
-    main(config.udp_address)
+    parser.add_argument('-c', '--connect', required=True)
+    parser.add_argument('-b', '--no-gui', action='store_true', default=False)
+    args = parser.parse_args()
+
+    main(args.connect, (not args.no_gui))
