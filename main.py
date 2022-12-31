@@ -40,11 +40,11 @@ def main(udp_address, gui):
 if __name__ == "__main__":
 
     parser = argparse.ArgumentParser(
-                    prog = 'VTUBE-OFACIAL-LINK',
-                    description = 'VTUBE-OFACIAL-LINK')
+                    prog = 'VTube-IFacial-Link',
+                    description = 'A *VTube Studio* plugin that bridging facial tracking from *iFacialMocap* (IOS), enabling full apple ARKit facial tracking features.')
 
-    parser.add_argument('-c', '--connect', required=True)
-    parser.add_argument('-b', '--no-gui', action='store_true', default=False)
+    parser.add_argument('-c', '--connect', required=True, help='the IP address of capturing device to connect. Please set with the address shown in the iFacialMocap')
+    parser.add_argument('-b', '--no-gui', action='store_true', default=False, help='Flag that run the program without GUI')
     args = parser.parse_args()
 
     main(args.connect, (not args.no_gui))
