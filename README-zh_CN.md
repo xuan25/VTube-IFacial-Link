@@ -2,6 +2,8 @@
 
 一个 *VTube Studio* 插件，从 *iFacialMocap*（IOS）桥接面部跟踪，实现完整的苹果 ARKit 面部跟踪功能。
 
+*这是一个使用 Python 实现的版本，另外还有一个[使用 C# 实现的版本](https://github.com/xuan25/VTube-IFacial-Link-Sharp)*
+
 | ![](imgs/screenshot1.png) | ![](imgs/screenshot2.png) |
 |---|---|
 
